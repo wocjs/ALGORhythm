@@ -2,11 +2,11 @@
 from collections import deque
 
 def bfs(a, b):
-    visited[a][b] = 1
     q = deque()
     q.append([a, b])
     while q:
         x, y = q.popleft()
+        # visited[x][y] = 1     # case 1번, 이걸 살리고
         for dx, dy in dr:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and arr[nx][ny] == arr[x][y] and not visited[nx][ny]:
