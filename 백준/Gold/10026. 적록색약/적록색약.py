@@ -1,16 +1,14 @@
-import sys
+
 from collections import deque
 
-
-def bfs(i, j):
-    visited[i][j] = 1
+def bfs(a, b):
+    visited[a][b] = 1
     q = deque()
-    q.append([i, j])
+    q.append([a, b])
     while q:
         x, y = q.popleft()
-        for dr in range(4):
-            nx = x + dx[dr]
-            ny = y + dy[dr]
+        for dx, dy in dr:
+            nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and arr[nx][ny] == arr[x][y] and not visited[nx][ny]:
                 visited[nx][ny] = 1
                 q.append([nx, ny])
@@ -18,28 +16,28 @@ def bfs(i, j):
 
 n = int(input())
 arr = [list(input()) for _ in range(n)]
-visited = [[False] * n for _ in range(n)]
 
-cnt = 0
-dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+visited = [[0] * n for _ in range(n)]
+cnt1 = 0
+dr = [[-1, 0], [1, 0], [0, -1], [0, 1]]
 
 for i in range(n):
     for j in range(n):
         if not visited[i][j]:
             bfs(i, j)
-            cnt += 1
-print(cnt, end=' ')
+            cnt1 += 1
 
 for i in range(n):
     for j in range(n):
         if arr[i][j] == 'R':
             arr[i][j] = 'G'
 
-cnt = 0
-visited = [[False] * n for _ in range(n)]
+visited = [[0] * n for _ in range(n)]
+cnt2 = 0
+
 for i in range(n):
     for j in range(n):
         if not visited[i][j]:
             bfs(i, j)
-            cnt += 1
-print(cnt)
+            cnt2 += 1
+print(cnt1, cnt2)
