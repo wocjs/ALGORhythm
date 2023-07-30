@@ -6,11 +6,12 @@ def bfs(a, b):
     q.append([a, b])
     while q:
         x, y = q.popleft()
-        # visited[x][y] = 1     # case 1번, 이걸 살리고
+        # visited[x][y] = 1     # 이거 이상함. 이걸 살리고
         for dx, dy in dr:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and arr[nx][ny] == arr[x][y] and not visited[nx][ny]:
-                visited[nx][ny] = 1
+                visited[nx][ny] = 1  # 이걸 빼니까 시간초과가 뜨네??
+                
                 q.append([nx, ny])
 
 
