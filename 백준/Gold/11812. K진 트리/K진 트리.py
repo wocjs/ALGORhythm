@@ -6,20 +6,19 @@ input = sys.stdin.readline
 # depth층에서 가장 오른쪽(해당 층에서 최댓값)에 있는 노드 == S(n)
 # a*(r^n-1)/(r-1) where a == 1 & r == k & n == depth
 # -> (k**depth-1)//(k-1)
-def maxvalue(depth):
-    if depth <= 0:
-        return 0
-
-    return (k ** depth - 1) // (k - 1)
+# def maxvalue(depth):
+#     if depth <= 0:
+#         return 0
+#
+#     return (k ** depth - 1) // (k - 1)
 
 # 해당 노드의 depth 찾기
 def depth_find(node):
-    depth = 1
-    while True:
-        if maxvalue(depth) >= node:
-            return depth
-        depth += 1
-
+    cnt = 1
+    while node > 1:
+        cnt += 1
+        node = ((node - 2) // k) + 1
+    return cnt
 def find(a, b, ans):
     a_depth = depth_find(a)
     b_depth = depth_find(b)
