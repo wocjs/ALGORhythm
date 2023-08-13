@@ -11,10 +11,12 @@ def find(now):
         return
     for i in range(n):
         arr[now] = i
+        flag = True
         for j in range(now):
             if arr[now] == arr[j] or abs(now - j) == abs(arr[now] - arr[j]):
+                flag = False
                 break
-        else:
+        if flag:
             find(now + 1)
     pass
 
