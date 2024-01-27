@@ -1,6 +1,7 @@
-
 # B1238
+import sys
 import heapq
+input = sys.stdin.readline
 INF = float('inf')
 
 def find(st):
