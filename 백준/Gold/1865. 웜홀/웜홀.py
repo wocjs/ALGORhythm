@@ -1,4 +1,3 @@
-
 # B 1865
 import sys
 input = sys.stdin.readline
