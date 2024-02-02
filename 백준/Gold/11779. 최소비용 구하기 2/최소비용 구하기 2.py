@@ -1,5 +1,7 @@
-
+# B11779
+import sys
 import heapq
+input = sys.stdin.readline
 
 INF = 10 ** 9
 n = int(input())
@@ -27,12 +29,11 @@ while q:
             # 갱신이 되는 타이밍에 현재 -> 다음도 이음
             prev[nxt] = now
 
-print(dist[en])
 path = [en]
 now = en
 while now != st:
     now = prev[now]
     path.append(now)
+print(dist[en])
 print(len(path))
-path.reverse()
-print(*path)
+print(*path[::-1])
