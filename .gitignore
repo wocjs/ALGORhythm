@@ -542,8 +542,8 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-./GoodbyeSSAFY
-./input.txt
-./test.cpp
+GoodbyeSSAFY.py
+input.txt
+test.cpp
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm,venv,visualstudio,visualstudiocode
