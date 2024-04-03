@@ -1,7 +1,9 @@
 import sys
 sys.stdin = open('../input.txt', 'r')
 #####
-# 1315 start
+# 1315 start 1500 end
+# https://www.codetree.ai/training-field/frequent-problems/problems/tree-kill-all/description?page=1&pageSize=20
+
 n, m, k, c = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(n)]
 tdr = [[-1, 0], [1, 0], [0, -1], [0, 1]]
