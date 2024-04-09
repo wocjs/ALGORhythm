@@ -3,6 +3,8 @@ sys.stdin = open('../input.txt', 'r')
 #####
 # https://www.codetree.ai/training-field/frequent-problems/problems/odd-monopoly/description?page=2&pageSize=20
 # 1400 start 1538 end
+import sys
+input = sys.stdin.readline
 def move():
     for pid in range(1, m+1):
         if players.get(pid) is None:
