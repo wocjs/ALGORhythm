@@ -286,7 +286,6 @@ def print_result():
     ans = 0
     for i in range(1, p + 1):
         ans = max(ans, score[i] + total_sum)
-
     print(ans)
 
 
