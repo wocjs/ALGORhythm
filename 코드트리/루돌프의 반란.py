@@ -1,7 +1,6 @@
 # import sys
 # sys.stdin = open('input.txt', 'r')
 ##### https://www.codetree.ai/training-field/frequent-problems/problems/rudolph-rebellion/description?page=1&pageSize=20
-dr = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 
 
 def select_santa(deer_loc):
@@ -26,6 +25,7 @@ def select_santa(deer_loc):
                     select_santa_num = i
                     select_santa_loc = [r2, c2]
     return select_santa_num, select_santa_loc
+
 
 def deer_move_rule(x1, y1, x2, y2):
     if x1 > x2:
@@ -68,6 +68,7 @@ def interaction(crush_new_santa_num, dir_x, dir_y):
         if not TF:
             interaction(p_num, dir_x, dir_y)
         santa[crush_new_santa_num] = [nx, ny]
+
 
 def deer_crash(deer_loc, x1, y1, p_num, x2, y2):
     santa_score[p_num] += C
@@ -156,7 +157,7 @@ def santa_move(deer_loc):
             santa[i] = [x1, y1]
 
 
-
+dr = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 # N:게임격자, M: 게임턴수, P:산타개수, C:루돌프 힘, D: 산타의 힘
 N, M, P, C, D = map(int, input().split())
 deer_loc = list(map(int, input().split()))

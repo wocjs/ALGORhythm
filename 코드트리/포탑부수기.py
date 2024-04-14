@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+sys.stdin = open('../input.txt', 'r')
 ###### https://www.codetree.ai/problems/destroy-the-turret/description
 # 1315 start 1823 end
 from collections import deque
@@ -208,15 +208,112 @@ for turn in range(1, k+1):
     arr[attacker[0]][attacker[1]] += n+m
     attackee = select_attackee(attacker)
     attack_date[attacker[0]][attacker[1]] = turn
+    print(turn)
     if chk_laser(attacker[0], attacker[1], attackee[0], attackee[1]):
         laser(attacker[0], attacker[1], attackee[0], attackee[1])
+        print('laser')
     else:
         bomb(attacker[0], attacker[1], attackee[0], attackee[1])
+        print('bomb')
     attack_check[attacker[0]][attacker[1]] = 1
     heal()
-    # if turn % 20 == 0:
-    #     print(turn, attacker, attackee)
+    print(attacker, attackee)
+    for i in arr:
+        print(i)
+    print()
 ans = 0
 for i in arr:
     ans = max(ans, max(i))
 print(ans)
+'''1
+laser
+[3, 2] [1, 1]
+[0, 0, 6, 0, 8]
+[0, 0, 2, 0, 7]
+[2, 0, 0, 9, 3]
+[6, 0, 12, 5, 3]
+[11, 11, 0, 6, 9]
+[11, 0, 3, 3, 7]
+
+2
+laser
+[1, 2] [3, 2]
+[0, 0, 0, 0, 9]
+[0, 0, 13, 0, 8]
+[3, 0, 0, 10, 4]
+[7, 0, 0, 0, 4]
+[12, 12, 0, 0, 10]
+[12, 0, 0, 0, 8]
+
+3
+bomb
+[2, 0] [1, 2]
+[0, 0, 0, 0, 10]
+[0, 0, 0, 0, 9]
+[14, 0, 0, 3, 5]
+[8, 0, 0, 0, 5]
+[13, 13, 0, 0, 11]
+[13, 0, 0, 0, 9]
+
+4
+laser
+[2, 3] [2, 0]
+[0, 0, 0, 0, 11]
+[0, 0, 0, 0, 10]
+[0, 0, 0, 14, 0]
+[9, 0, 0, 0, 6]
+[14, 14, 0, 0, 12]
+[14, 0, 0, 0, 10]
+
+5
+laser
+[3, 4] [4, 0]
+[0, 0, 0, 0, 12]
+[0, 0, 0, 0, 11]
+[0, 0, 0, 15, 0]
+[1, 0, 0, 0, 17]
+[0, 15, 0, 0, 13]
+[15, 0, 0, 0, 11]
+
+6
+laser
+[3, 0] [3, 4]
+[0, 0, 0, 0, 13]
+[0, 0, 0, 0, 12]
+[0, 0, 0, 16, 0]
+[12, 0, 0, 0, 5]
+[0, 16, 0, 0, 14]
+[16, 0, 0, 0, 12]
+
+7
+laser
+[3, 4] [5, 0]
+[0, 0, 0, 0, 14]
+[0, 0, 0, 0, 13]
+[0, 0, 0, 17, 0]
+[13, 0, 0, 0, 16]
+[0, 17, 0, 0, 6]
+[0, 0, 0, 0, 4]
+
+8
+bomb
+[5, 4] [4, 1]
+[0, 0, 0, 0, 15]
+[0, 0, 0, 0, 14]
+[0, 0, 0, 18, 0]
+[6, 0, 0, 0, 17]
+[0, 2, 0, 0, 7]
+[0, 0, 0, 0, 15]
+
+9
+bomb
+[4, 1] [2, 3]
+[0, 0, 0, 0, 16]
+[0, 0, 0, 0, 8]
+[0, 0, 0, 5, 0]
+[7, 0, 0, 0, 11]
+[0, 13, 0, 0, 8]
+[0, 0, 0, 0, 16]
+
+16
+'''
