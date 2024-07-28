@@ -21,4 +21,4 @@ while r < n:
     ans = max(ans, r-l+1)
     r += 1
 
-print(ans, end='\n\n')
+print(ans)
