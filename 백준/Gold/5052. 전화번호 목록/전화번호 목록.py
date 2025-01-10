@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 def find(_nms):
     _nms.sort()
     for i in range(len(_nms) - 1):
@@ -12,5 +15,5 @@ for _ in range(t):
     n = int(input())
     nums = []
     for _ in range(n):
-        nums.append(input())
+        nums.append(input().strip())
     find(nums)
